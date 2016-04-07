@@ -1,0 +1,12 @@
+<!-- This is a view that will contain the signup view -->
+<div id = "signup"> 
+  <form name = "signupForm" ng-submit = 'signup()'>
+  	<!-- user.username and user.password to be defined -->
+    <input type = "text" ng-model = 'user.username'>
+    <input type = "text" ng-model = 'user.password'>
+    <button> Sign-up </button>
+  </form>
+  <!-- redirect to sign in once signed up -->
+  <!-- change the path directly -->
+  <a href = "#/signin"> Sign-in </a>
+</div>
