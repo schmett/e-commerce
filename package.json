@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce",
+  "version": "0.1.0",
+  "description": "ecommerce",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobaTraders/e-commerce.git"
+  },
+  "author": "'Jin Bok, Jovani Rico, Sylvia Yanakieva, and David Gilroy'",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobaTraders/e-commerce/issues"
+  },
+  "homepage": "https://github.com/bobaTraders/e-commerce#readme"
+}
