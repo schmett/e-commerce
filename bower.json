@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce",
+  "description": "ecommerce",
+  "main": "server.js",
+  "authors": [
+    "'Jin Bok",
+    "Jovani Rico",
+    "Sylvia Yanakieva",
+    "and David Gilroy'"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/bobaTraders/e-commerce",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
