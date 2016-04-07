@@ -11,7 +11,7 @@ angular.module('signup', [])
       // user session to be created
         .then(function (session) {
           // exact path to be determined
-          $window.localStorage.setItem('...', session);
+          // $window.localStorage.setItem('...', session);
           // exact path to be determined
           $location.path('/');
         })

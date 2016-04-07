@@ -1,2 +1,2 @@
-//Inicial File
+//Initial File
 //TODO: Implemet
