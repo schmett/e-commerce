@@ -1,47 +1,27 @@
 angular.module('commerce.services', [])
   
-  .factory('Location', function ($http) {
+  .factory('Search', function ($http) {
     return {
-      getOne: function() {
-        return $http({
-          method: 'GET',
-          url: '/api/locations'
-        })
-        .then(function (resp) {
-          return resp.data;
-        });
-      },
-
-      addOne: function(location) {
+      getAll: function(search) {
         return $http({
           method: 'POST',
-          url: '/api/locations',
-          data: location
-        })
-        .then(function (resp) {
-          console.log(resp);
-          return resp;
-        });
-      }
-    }
-  })
-
-  .factory('Items', function ($http) {
-    return {
-      getAll: function() {
-        return $http({
-          method: 'GET',
-          url: '/api/items'
+          url: '/search',
+          data: search
         })
         .then(function (resp) {
           return resp.data;
         });
       },
 
+    }
+  })
+   
+  .factory('Item', function ($http) {
+    return {
       addOne: function(item) {
         return $http({
           method: 'POST',
-          url: '/api/items',
+          url: '/item',
           data: item
         })
         .then(function (resp) {
@@ -50,8 +30,32 @@ angular.module('commerce.services', [])
         });
       },
 
-      delete: function() {
-        
-      }
+      deleteOne: function(item) {
+        return $http({
+          method: 'POST',
+          url: '/item'
+        })
+        .then(function (resp) {
+          return resp;
+        });
+      }     
+    }  
+  })
+
+  .factory('User', function ($http) {
+    return {
+      addOne: function(user) {
+        return $http({
+          method: 'POST',
+          url: '/users',
+          data: user
+        })
+        .then(function (resp) {
+          console.log(resp);
+          return resp;
+        })
+      },
+
+      deleteOne: 
     }
   })

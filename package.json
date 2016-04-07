@@ -4,6 +4,7 @@
   "description": "ecommerce",
   "dependencies": {
     "body-parser": "^1.9.2",
+    "ejs": "^2.4.1",
     "express": "^4.10.1",
     "lodash": "^2.4.1",
     "morgan": "^1.4.1",

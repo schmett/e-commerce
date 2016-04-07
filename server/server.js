@@ -24,7 +24,9 @@ app.get('/', function(req, res) {
  res.render("index");
 });
 
-
+app.get('/search', function(req, res) {
+  console.log("WORKS");
+})
 
 app.listen(port, function() {
  console.log("listening on port " + port);
