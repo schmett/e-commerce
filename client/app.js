@@ -1,3 +1,7 @@
-//Inicial File
-//TODO: Implemet
-console.log('foo');
+// create routes 
+// search
+// signin
+// signup 
+
+angular.module('boba')
+
