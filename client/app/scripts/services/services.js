@@ -48,6 +48,10 @@ angular.module('commerce.services', [])
           console.log(resp);
           return resp;
         });
+      },
+
+      delete: function() {
+        
       }
     }
   })
