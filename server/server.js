@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "../client/")));
 /* middlewares */
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded());
-app.set('views', path.join(__dirname, '../client/views/'));
+app.set('views', path.join(__dirname, '../client/'));
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -26,6 +26,6 @@ app.get('/', function(req, res) {
 
 
 
-app.listen(8000, function() {
- console.log("listening on port 8000");
+app.listen(port, function() {
+ console.log("listening on port " + port);
 });
