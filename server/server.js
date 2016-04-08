@@ -2,6 +2,9 @@
 var express = require("express");
 var path = require("path");
 var app = express();
+var linksController = require('controllers/itemController.js');
+var userController = require('controllers/userController.js');
+var userController = require('controllers/searchController.js');
 var port = process.env.PORT || 7777;
 var routes = require('./controllers/routes.js')
 
@@ -18,9 +21,6 @@ app.set('views', path.join(__dirname, '../client/'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-
-/* All routes are in controller/routes.js */
-routes(app);
 
 app.listen(port, function() {
  console.log("listening on port " + port);
