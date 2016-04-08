@@ -1,19 +1,32 @@
 var User = require('./userModel.js');
 
 
+
 module.exports = {
+  login: function (req, res, next) {
+    var username = req.body.username;
+    var password = req.body.password;
+
+  },
+  signup: function (req, res, next) {
+    var username = req.body.username;
+    var password = req.body.password;
+  },
+
   users: {
     get: function (req, res) {
-      models.messages.get(function(err, results) {
-        if (err) { /* do something */ }
-        res.json(results);
+      User.users.get(function(err, results) {
+        if (!err) { 
+          res.json(results);
+        }
       });
     },
     post: function (req, res) {
       var params = [req.body.message, req.body.username, req.body.roomname];
-      models.messages.post(params, function(err, results) {
-        if (err) { /* do something */ }
-        res.sendStatus(201);
+      User.users.post(params, function(err, results) {
+        if (!err) { 
+          res.sendStatus(201);
+        }
       });
     }
   }

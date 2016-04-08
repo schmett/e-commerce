@@ -4,16 +4,18 @@ var Item = require('./itemModel.js');
 module.exports = {
   items: {
     get: function (req, res) {
-      models.messages.get(function(err, results) {
-        if (err) { /* do something */ }
-        res.json(results);
+      Item.items.get(function(err, results) {
+        if (!err) { 
+          res.json(results);
+        }
       });
     },
     post: function (req, res) {
       var params = [req.body.message, req.body.username, req.body.roomname];
-      models.messages.post(params, function(err, results) {
-        if (err) { /* do something */ }
-        res.sendStatus(201);
+      Item.items.post(params, function(err, results) {
+        if (!err) { 
+          res.sendStatus(201);
+        }
       });
     }
   }

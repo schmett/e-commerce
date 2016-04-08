@@ -1,4 +1,6 @@
 var db = require('../db');
+var bcrypt = require('bcrypt-nodejs');
+var Promise = require('bluebird');
 
 module.exports = {
   users: {
@@ -15,3 +17,4 @@ module.exports = {
       });
     }
   };
+};
