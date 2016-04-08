@@ -6,7 +6,7 @@ angular.module('signupServices', [])
   		return $http({
   			method: 'POST', 
   			// change url accordingly
-  			url: 'api/users/signup', 
+  			url: 'users/signup/add', 
   			data: user
   		})
   		.then(function(resp) {

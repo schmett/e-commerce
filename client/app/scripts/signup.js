@@ -1,4 +1,3 @@
-
 angular.module('signup', [])
 
 // Signup factory is stored as Signup
