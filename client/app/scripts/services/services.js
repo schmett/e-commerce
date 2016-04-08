@@ -2,6 +2,7 @@ angular.module('commerce.services', [])
   
   .factory('Search', function ($http) {
     return {
+      // get array of search inputs and return the results
       getAll: function(search) {
         return $http({
           method: 'POST',
@@ -56,6 +57,33 @@ angular.module('commerce.services', [])
         })
       },
 
-      deleteOne: 
+      deleteOne: function(item) {
+        return $http({
+          method: 'POST',
+          url: '/item'
+        })
+        .then(function (resp) {
+          return resp;
+        });
+      }
     }
   })
+
+  .factory('Signup', function($http) {
+    var signup = function(user) {
+      return $http({
+        method: 'POST', 
+        // change url accordingly
+        url: 'api/users/signup', 
+        data: user
+      })
+      .then(function(resp) {
+        // session needs to be sent
+        return resp.data.session;
+      })
+    }
+
+    return {
+      signup: signup
+    }
+  });
