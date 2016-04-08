@@ -19,6 +19,7 @@ angular.module('commerce.services', [])
    
   .factory('Item', function ($http) {
     return {
+      // add an item from a user
       addOne: function(item) {
         return $http({
           method: 'POST',
@@ -45,6 +46,7 @@ angular.module('commerce.services', [])
 
   .factory('User', function ($http) {
     return {
+      // adds a user to the database
       addOne: function(user) {
         return $http({
           method: 'POST',
@@ -57,6 +59,7 @@ angular.module('commerce.services', [])
         })
       },
 
+      //deletes user from database
       deleteOne: function(user) {
         return $http({
           method: 'POST',
@@ -67,6 +70,7 @@ angular.module('commerce.services', [])
         });
       },
 
+      //returns a user 
       getUser: function(user) {
         return $http({
           method: 'GET',
