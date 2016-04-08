@@ -18,9 +18,11 @@ app.set('views', path.join(__dirname, '../client/'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-
-/* All routes are in controller/routes.js */
-routes(app);
+app.use(session({
+  secret: 'shhh, it\'s a secret',
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.listen(port, function() {
  console.log("listening on port " + port);
