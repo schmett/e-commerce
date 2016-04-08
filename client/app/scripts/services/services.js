@@ -22,7 +22,7 @@ angular.module('commerce.services', [])
       addOne: function(item) {
         return $http({
           method: 'POST',
-          url: '/item',
+          url: '/items/add',
           data: item
         })
         .then(function (resp) {
@@ -34,7 +34,7 @@ angular.module('commerce.services', [])
       deleteOne: function(item) {
         return $http({
           method: 'POST',
-          url: '/item'
+          url: '/items/delete'
         })
         .then(function (resp) {
           return resp;
@@ -48,7 +48,7 @@ angular.module('commerce.services', [])
       addOne: function(user) {
         return $http({
           method: 'POST',
-          url: '/users',
+          url: '/users/add',
           data: user
         })
         .then(function (resp) {
@@ -57,24 +57,34 @@ angular.module('commerce.services', [])
         })
       },
 
-      deleteOne: function(item) {
+      deleteOne: function(user) {
         return $http({
           method: 'POST',
-          url: '/item'
+          url: '/users/delete'
         })
         .then(function (resp) {
           return resp;
         });
+      },
+
+      getUser: function(user) {
+        return $http({
+          method: 'GET',
+          url: 'users/get'
+        })
+        .then(function (resp) {
+          return resp.data;
+        })
       }
     }
   })
 
-  .factory('Signup', function($http) {
+  .factory('Signup', function ($http) {
     var signup = function(user) {
       return $http({
         method: 'POST', 
         // change url accordingly
-        url: 'api/users/signup', 
+        url: '/signup', 
         data: user
       })
       .then(function(resp) {
