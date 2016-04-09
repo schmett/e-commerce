@@ -27,7 +27,7 @@ app.config(function ($routeProvider, $httpProvider) {
 })
 
 
-//Code for store the Token en the client
+//Code for store the Token in the client
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
@@ -35,7 +35,7 @@ app.config(function ($routeProvider, $httpProvider) {
   // then add it to the header so the server can validate the request
   var attach = {
     request: function (object) {
-      var jwt = $window.localStorage.getItem('com.shortly');
+      var jwt = $window.localStorage.getItem('com.e-Commer');
       if (jwt) {
         object.headers['x-access-token'] = jwt;
       }
