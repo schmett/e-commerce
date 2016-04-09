@@ -1,7 +1,15 @@
 // create routes 
-// search
-// signin
-// signup 
+  // search
+  // signin
+  // signup 
 
-angular.module('boba')
+var App = angular.module('e-Commer', [
+  // add ng-route
+
+]);
+
+// .factory to attach tokens
+
+// create the route
+
 
