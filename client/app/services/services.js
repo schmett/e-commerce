@@ -83,21 +83,31 @@ angular.module('commerce.services', [])
     }
   })
 
-  .factory('Signup', function ($http) {
-    var signup = function(user) {
-      return $http({
-        method: 'POST', 
-        // change url accordingly
-        url: '/signup', 
-        data: user
-      })
-      .then(function(resp) {
-        // session needs to be sent
-        return resp.data.session;
-      })
-    }
-
+//@Author: Jovani
+//factory for Authentication, signup and signin methods
+  .factory('Auth', function ($http) {
     return {
-      signup: signup
+      //signup method for make a request and send the user info to the server
+      signup : function(user) {
+        return $http({
+          method: 'POST', 
+          url: '/signup', 
+          data: user
+        })
+        .then(function(resp) {
+          return resp.data.session;
+        })
+      }
+      //signin method for make a request and send the user info to the server
+      signin : function (user) {
+        return $http({
+          method: 'POST',
+          url: '/signin',
+          data: user
+        })
+        .then(function (resp) {
+          return resp.data.token;
+        });
+      };
     }
   });
