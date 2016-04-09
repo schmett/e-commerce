@@ -1,13 +1,19 @@
-<form name="loginForm">
-  <div class="group">
-    <input type="text"><span class="highlight"></span><span class="bar"></span>
-    <label>Name</label>
+<md-toolbar class="md-whiteframe-1dp">
+  <div class="md-toolbar-tools">
+    <div class="md-title">Signin</div>
   </div>
-  <div class="group">
-    <input type="password"><span class="highlight"></span><span class="bar"></span>
-    <label>Password</label>
-  </div>
-  <button type="button" class="button buttonBlue">Login
-    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-  </button>
-</form>
+</md-toolbar>
+
+<form name="loginForm" ng-submit = 'signin()'>
+   <div class="group">
+     <input type="text"><span class="highlight" ng-model='userLogin.username'></span><span class="bar"></span>
+     <label>Name</label>
+   </div>
+   <div class="group">
+     <input type="password"><span class="highlight" ng-model='userLogin.password'></span><span class="bar"></span>
+     <label>Password</label>
+   </div>
+   <button type="button" class="button buttonBlue">Login
+     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+   </button>
+ </form>
