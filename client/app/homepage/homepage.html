@@ -1,0 +1,27 @@
+<!-- Sylvia -->
+
+<div id = "homepage" ng-controller = "SearchController"> 
+ <!-- the intent here is to trigger a search function on submit
+ this will be the getAll function defined in the search library -->
+ 
+    <!-- inputs are location, items, dates
+      defined models for location, items, dates -->
+ <nav class="navigation">
+      <ul>
+        <li>
+          <a class="selected" href="#/signin">Signin</a>
+        </li>
+        <li>
+          <a href="#/signup">Signup</a>
+        </li>
+      </ul>
+    </nav>
+
+ <form name = "searchForm" ng-submit = 'getAll()'>
+   <input type = "text" ng-model = 'location'>
+   <input type = "text" ng-model = 'items'>
+   <input type = "text" ng-model = 'dates'>
+   <button> Search </button>
+ </form>
+
+</div>

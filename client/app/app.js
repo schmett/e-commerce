@@ -21,7 +21,7 @@ app.config(function ($routeProvider, $httpProvider) {
       controller: 'signinController'
     })
     .when('/homepage', {
-      templateUrl: 'app/auth/signup.html',
+      templateUrl: 'app/homepage/homepage.html',
       controller: 'SearchController'
     })
 })
