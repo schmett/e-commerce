@@ -10,7 +10,7 @@ $scope.userLogin = {};
     //call the signin factory method and pass the user form
     Auth.signin($scope.userLogin)
       .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
+        $window.localStorage.setItem('com.e-Commer', token);
         $location.path('/homepage');
       })
       .catch(function (error) {

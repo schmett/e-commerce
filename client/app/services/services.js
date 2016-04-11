@@ -91,13 +91,13 @@ angular.module('commerce.services', [])
       signup : function(user) {
         return $http({
           method: 'POST', 
-          url: '/signup', 
+          url: '/users/signup', 
           data: user
         })
         .then(function(resp) {
-          return resp.data.session;
+          return resp.data.token;
         })
-      }
+      },
       //signin method for make a request and send the user info to the server
       signin : function (user) {
         return $http({
@@ -108,6 +108,14 @@ angular.module('commerce.services', [])
         .then(function (resp) {
           return resp.data.token;
         });
-      };
+      },
+
+      isAuth: function () {
+        return !!$window.localStorage.getItem('com.e-Commer');
+      },
+      signout: function () {
+        $window.localStorage.removeItem('com.e-Commer');
+        $location.path('/signin');
+      }
     }
   });
