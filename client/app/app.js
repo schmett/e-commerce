@@ -14,11 +14,11 @@ app.config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/signin/signin.html',
-      controller: 'signupController'
+      controller: 'signinController'
     })
     .when('/signup', {
       templateUrl: 'app/signup/signup.html',
-      controller: 'signinController'
+      controller: 'signupController'
     })
     .when('/homepage', {
       templateUrl: 'app/homepage/homepage.html',
