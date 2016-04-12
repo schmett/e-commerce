@@ -4,13 +4,12 @@ var app = angular.module('e-Commer', [
   'e-Commer.signup',
   'e-Commer.signin',
   'e-Commer.search',
-  'ngMdIcons',
-  'ngMaterial',
-  'ngRoute',
+  'e-Commer.services',
+  'ngRoute'
 ]);
 
 // create the route for every template and set a controller
-app.config(function ($routeProvider, $httpProvider) {
+app.config(function ($routeProvider,$httpProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/signin/signin.html',
@@ -22,12 +21,15 @@ app.config(function ($routeProvider, $httpProvider) {
     })
     .when('/homepage', {
       templateUrl: 'app/homepage/homepage.html',
-      controller: 'SearchController'
+      controller: 'SearchController',
+      authenticate: true
     })
+    .otherwise({
+      redirectTo: '/homepage'
+    });
+  $httpProvider.interceptors.push('AttachTokens');
 })
-
-
-//Code for store the Token in the client
+// //Code for store the Token in the client
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request

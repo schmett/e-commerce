@@ -1,18 +1,6 @@
 var User = require('./userModel.js');
 
-
-
 module.exports = {
-
-    signin: function (req, res, next) {
-      var username = req.body.username;
-      var password = req.body.password;
-
-    },
-    signup: function (req, res, next) {
-      var username = req.body.username;
-      var password = req.body.password;
-    },
   users: {
     get: function (req, res) {
       User.users.get(function(err, results) {

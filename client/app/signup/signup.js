@@ -10,11 +10,11 @@ $scope.userform = {};
   $scope.signup = function () {
     //call the signup factory method and pass the user form
     Auth.signup($scope.userform)
-      .then(function (token) {
-        $window.localStorage.setItem('com.e-Commer', token);
-        $location.path('/homepage');
+      .then(function () {
+        $location.path('/signin');
       })
       .catch(function (error) {
         console.error(error);
       });
   };
+});
