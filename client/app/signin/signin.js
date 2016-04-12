@@ -7,6 +7,7 @@ angular.module('e-Commer.signin', [])
 $scope.userLogin = {};
 
   $scope.signin = function () {
+    console.log($scope.userLogin.username);
     //call the signin factory method and pass the user form
     Auth.signin($scope.userLogin)
       .then(function (token) {

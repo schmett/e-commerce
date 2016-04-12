@@ -13,6 +13,8 @@ module.exports = {
     post: function (user, callback) {
       var query = 'insert into users (name,email,password) values ("'+ user.username +'","'+user.email+'","'+user.password+'")';
       db.query(query, function(err, results) {
+        console.log('Model err', err);
+        console.log('Model results', results);
         callback(err, results);
       });
     }

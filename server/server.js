@@ -12,7 +12,8 @@ app.use(express.static(path.join(__dirname, "../client")));
 // app.use(express.static(path.join(__dirname, "../lib")));
 /* middlewares */
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 // app.set('views', path.join(__dirname, '../client/'));
 
 // app.engine('html', require('ejs').renderFile);
