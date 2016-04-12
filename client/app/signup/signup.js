@@ -18,3 +18,4 @@ $scope.userform = {};
         console.error(error);
       });
   };
+});

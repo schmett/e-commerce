@@ -1,4 +1,4 @@
-angular.module('commerce.services', [])
+angular.module('e-Commer.services', [])
   
   .factory('Search', function ($http) {
     return {

@@ -1,19 +1,26 @@
-var itemController = require('itemController.js');
-var userController = require('userController.js');
-var searchController = require('searchController.js');
-
+// var itemController = require('itemController.js');
+// var userController = require('userController.js');
+// var searchController = require('searchController.js');
+var authController = require('./authController.js');
+var Auth = require('../utility/util.js');
 /* Routes */
+
 module.exports = function(app) {
 
-  app.get('/users', userController.users);
 
-  app.post('/users', userController.users);
+  app.post('/signup', authController.signup);
 
-  app.get('/items', itemController.items);
+  app.post('/signin', authController.signin);
 
-  app.post('/items', itemController.items);
+  // app.get('/users', checkAuth, userController.users);
 
-  app.post('/search', searchController.search);
+  // app.post('/users', checkAuth, userController.users);
+
+  // app.get('/items', checkAuth, itemController.items);
+
+  // app.post('/items', checkAuth, itemController.items);
+
+  // app.post('/search', checkAuth, searchController.search);
 }
 
 
