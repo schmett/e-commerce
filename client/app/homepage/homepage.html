@@ -37,13 +37,25 @@
 
   <!-- wrap this into another div so that we an toggle or hide -->
   <!-- Change this so that toggles show/hide  -->
-  <div class="form">
-    <form name = "searchForm" ng-submit = 'getAll()'>
+  <div class="form" ng-show='formRender()'>
+    <form name = "searchForm" ng-submit = 'getFormValue()'>
       <input type = "text" ng-model = 'location'>
       <input type = "text" ng-model = 'items'>
       <input type = "text" ng-model = 'dates'>
       <button> Search </button>
     </form>
+  </div>
+
+  <!-- Image render -->
+  <div class="itemList">
+    <ul>
+      <li ng-repeat='item in randItemsData'>
+      <!-- change it to <a> tag if there is route item.id -->
+        <span>{{item.name}}</span>
+        <span>{{item.description}}</span>
+        <span>{{item.price}}</span>
+      </li>
+    </ul>
   </div>
 
 
