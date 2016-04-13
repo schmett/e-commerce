@@ -3,14 +3,20 @@
 // var searchController = require('searchController.js');
 var authController = require('./authController.js');
 var Auth = require('../utility/util.js');
+var homeController = require('./homepageController.js');
 /* Routes */
 
 module.exports = function(app) {
 
+  // app.get('/', function(req, res) {
+  //   res.render('index');
+  // })
 
   app.post('/signup', authController.signup);
 
   app.post('/signin', authController.signin);
+
+  // app.post('/api/getRandItems', homepageController);
 
   // app.get('/users', checkAuth, userController.users);
 
