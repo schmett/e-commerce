@@ -3,7 +3,9 @@ var express = require("express");
 var path = require("path");
 var app = express();
 var port = process.env.PORT || 7777;
-var routes = require('./controllers/routes.js')
+var routes = require('./controllers/routes.js');
+var db = require('./db/index.js');
+db.connection();
 
 
 /* Static */

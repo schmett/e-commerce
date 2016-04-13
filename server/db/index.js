@@ -4,8 +4,8 @@ var connection = mysql.createConnection({
   user: 'root',
   password: '',
   database: 'ecommerce'
-});
+}).connect();
 
-connection.connect();
+
 
 module.exports = connection;
