@@ -4,24 +4,60 @@
  <!-- the intent here is to trigger a search function on submit
  this will be the getAll function defined in the search library -->
  
-    <!-- inputs are location, items, dates
-      defined models for location, items, dates -->
- <nav class="navigation">
-      <ul>
-        <li>
-          <a class="selected" href="#/signin">Signin</a>
-        </li>
-        <li>
-          <a href="#/signup">Signup</a>
-        </li>
-      </ul>
-    </nav>
+  <!-- inputs are location, items, dates
+    defined models for location, items, dates -->
+  <div ng-controller='subController'>
+    <div class="before" ng-show='showBorA'>
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a class="selected" href="#/signin">Signin</a>
+          </li>
+          <li>
+            <a href="#/signup">Signup</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
- <form name = "searchForm" ng-submit = 'getAll()'>
-   <input type = "text" ng-model = 'location'>
-   <input type = "text" ng-model = 'items'>
-   <input type = "text" ng-model = 'dates'>
-   <button> Search </button>
- </form>
+    <div class="after" ng-hide='showBorA'>
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a class="selected" href="#/cart">Cart</a>
+          </li>
+          <li>
+            <a href="#/logOut">Log Out</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+
+  <!-- wrap this into another div so that we an toggle or hide -->
+  <!-- Change this so that toggles show/hide  -->
+  <div class="form" ng-show='formRender()'>
+    <form name = "searchForm" ng-submit = 'getFormValue()'>
+      <input type = "text" ng-model = 'location'>
+      <input type = "text" ng-model = 'items'>
+      <input type = "text" ng-model = 'dates'>
+      <button> Search </button>
+    </form>
+  </div>
+
+  <!-- Image render -->
+  <div class="itemList">
+    <ul>
+      <li ng-repeat='item in randItemsData'>
+      <!-- change it to <a> tag if there is route item.id -->
+        <span>{{item.name}}</span>
+        <span>{{item.description}}</span>
+        <span>{{item.price}}</span>
+      </li>
+    </ul>
+  </div>
+
+
 
 </div>

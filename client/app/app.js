@@ -21,8 +21,8 @@ app.config(function ($routeProvider,$httpProvider) {
     })
     .when('/homepage', {
       templateUrl: 'app/homepage/homepage.html',
-      controller: 'SearchController',
-      authenticate: true
+      controller: 'SearchController'
+      // authenticate: true
     })
     .otherwise({
       redirectTo: '/homepage'
@@ -57,7 +57,7 @@ app.config(function ($routeProvider,$httpProvider) {
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
     if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
-      $location.path('/signin');
+      $location.path('/homepage');
     }
   });
 });
