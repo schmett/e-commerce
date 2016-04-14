@@ -1,12 +1,12 @@
 // Sylvia
 var Profile = require('./profileModel.js');
 
-// sync methods with profileModel.js
+// choose function below
 module.exports = {
 
   get: function (req, res, next) {
     var params = req.params;
-    Profile.get(params, function(err, results) {
+    Profile.profile(params, function(err, results) {
       if (!err) { 
         res.json(params);
       } else {
@@ -14,9 +14,10 @@ module.exports = {
       }
     });
   },
+
   post: function (req, res, next) {
     var params = req.params;
-    Profile.post(params, function(err, results) {
+    Profile.profile(params, function(err, results) {
       if (!err) { 
         res.json(params);
       } else {
