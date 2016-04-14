@@ -1,19 +1,26 @@
 var app = angular.module('e-Commer.search', []);
 
 app.controller('SearchController', function ($scope, $window, searchFactory) {
-  
-  //get random data
-  $scope.randItemsData = searchFactory.getRandItems();
   // this is for SEARCH FORM after LOGIN
   $scope.initData = {};
+  
+
+  // $scope.randItemsData = searchFactory.getSearchItems({default:'default'});
+  // console.log('Data ',$scope.randItemsData);
+  searchFactory.getSearchItems({default:'default'}).then(function(items){
+    $scope.randItemsData = items;
+  });
  
 
   $scope.getFormValue = function() {
+    $scope.randItemsData = {};
     $scope.initData.location = $scope.location;
-    $scope.initData.items = $scope.items;
-    $scope.initData.dates = $scope.dates;
+    $scope.initData.item = $scope.item;
+    // $scope.initData.dates = $scope.dates;
     console.log($scope.initData);
-    return searchFactory.getSearchItems($scope.initData);
+    searchFactory.getSearchItems($scope.initData).then(function(items){
+    $scope.randItemsData = items;
+    });
   }
 
   $scope.formRender = function() {
@@ -25,9 +32,7 @@ app.controller('SearchController', function ($scope, $window, searchFactory) {
     console.log(a);
     return a ? true : false;
   }
-  
-  // after login sending form data
-  searchFactory.getSearchItems($scope.initData);
+
 });
 
 app.controller('subController', function($scope) {
@@ -36,8 +41,6 @@ app.controller('subController', function($scope) {
   * solution 1: save token to db
    */
   $scope.showBorA = true;
-
-  console.log($scope.initData);
 });
 
 app.factory('searchFactory', function($http) {
@@ -49,18 +52,17 @@ app.factory('searchFactory', function($http) {
         data: inputValue
       }).then(function(res) {
         // match res.data with server side
-        // res.end(res.data);
-        
-        res.end(data);
-      });
-    },
-    getRandItems: function() {
-      return $http({
-        method: 'GET',
-        url: '/api/getRandItems'
-      }).then(function(res) {
+        console.log(res.data);
         return res.data;
-      })
+      });
     }
+    // getRandItems: function() {
+    //   return $http({
+    //     method: 'GET',
+    //     url: '/api/getRandItems'
+    //   }).then(function(res) {
+    //     return res.data;
+    //   })
+    // }
   }
 })

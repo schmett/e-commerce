@@ -1,6 +1,6 @@
 <!-- Sylvia -->
 
-<div id = "homepage" ng-controller = "SearchController"> 
+<div id = "homepage"> 
  <!-- the intent here is to trigger a search function on submit
  this will be the getAll function defined in the search library -->
  
@@ -40,8 +40,8 @@
   <div class="form" ng-show='formRender()'>
     <form name = "searchForm" ng-submit = 'getFormValue()'>
       <input type = "text" ng-model = 'location'>
-      <input type = "text" ng-model = 'items'>
-      <input type = "text" ng-model = 'dates'>
+      <input type = "text" ng-model = 'item'>
+<!--       <input type = "text" ng-model = 'dates'> -->
       <button> Search </button>
     </form>
   </div>
@@ -49,11 +49,13 @@
   <!-- Image render -->
   <div class="itemList">
     <ul>
-      <li ng-repeat='item in randItemsData'>
+      <li ng-repeat='item in s'>
       <!-- change it to <a> tag if there is route item.id -->
+      <!-- <div ng-repeat='item in itemObj'> -->
         <span>{{item.name}}</span>
         <span>{{item.description}}</span>
-        <span>{{item.price}}</span>
+        <!-- <span>{{item.price}}</span> -->
+        <!-- </div> -->
       </li>
     </ul>
   </div>

@@ -16,7 +16,7 @@ module.exports = function(app) {
 
   app.post('/signin', authController.signin);
 
-  // app.post('/api/getRandItems', homepageController);
+  app.post('/api/getSearchItems', homeController.search);
 
   // app.get('/users', checkAuth, userController.users);
 
