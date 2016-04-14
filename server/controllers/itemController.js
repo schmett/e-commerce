@@ -1,22 +1,27 @@
+// Sylvia
 var Item = require('./itemModel.js');
 
-
+// sync with methods from itemModel
 module.exports = {
-  items: {
-    get: function (req, res) {
-      Item.items.get(function(err, results) {
-        if (!err) { 
-          res.json(results);
-        }
-      });
-    },
-    post: function (req, res) {
-      var params = [req.body.message, req.body.username, req.body.roomname];
-      Item.items.post(params, function(err, results) {
-        if (!err) { 
-          res.sendStatus(201);
-        }
-      });
-    }
+
+  get: function (req, res, next) {
+    Item.get(function(err, results) {
+      if (!err) { 
+        res.json(201);
+      } else {
+        res.json(err);
+      }
+    });
+  },
+  
+  post: function (req, res, next) {
+    Item.post(function(err, results) {
+      if (!err) { 
+        res.json(201);
+      } else {
+        res.json(err);
+      }
+    });
   }
+
 };
