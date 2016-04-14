@@ -1,34 +1,21 @@
 
-<div ng-controller="checkoutController"> </div>
-
-<div id="checkout">
-  <h1>Your basket</h1>
-
-<!-- form is submitted on calling checkout, therefore define checkout function in controller -->
-<!-- define addOne function in controller-->
-<!-- define deleteOne function in controller -->        
-<!-- define checkout.name, checkout.price, checkout.quantity -->
-<!-- create a div for every time an item is added -->
-
-  <form name="checkout" ng-submit="checkout()">
-  	<div ng-repeat = "item in items">	
-	    Item: <div class = "description"> {{ items.description }} </div>
-	    Price per day: <div class = "price"> {{ items.price }} </div>
-	    Days: <div class = "days"> {{ items.days }} </div>
-	    Total for item: <div class = "total"> {{ items.total }} </div>
-	  </div>
-	    <button class = "deleteOneItem" ng-click = "deleteOne()"> Delete </button> 
-	  </div>
-	 
-	  <p>
-	  Total: <input type="value" ng-model="checkout.total" ng-click = "calculateTotal()">
-	  </p>
-	 
-	  <p>
-	    <button>Check out with Paypal</button>
-	  </p>
-  
-  </form> 
+<div ng-controller='SearchController'>
+  <table>
+    <caption>Check Out Page</caption>
+<!--     <thead>
+      <tr>
+        <th>Item ID</th>
+        <th>Item Name</th>
+        <th>Item Description</th>
+        <th></th>
+      </tr>
+    </thead> -->
+    <tbody>
+    <!-- items live in homepage ctrl!!!!! -->
+      <tr ng-repeat='item in checkOutItems'>
+        <td>{{item}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
 
