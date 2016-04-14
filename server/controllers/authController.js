@@ -7,7 +7,7 @@ module.exports = {
     User.users.get(user, function(err, results){
       if (!err) {
         var token = jwt.encode(user, 'secret');
-        res.json({token: token});
+        res.json({token: token, user: results});
       }
       else {
         res.json(err);
