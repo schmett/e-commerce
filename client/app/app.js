@@ -5,6 +5,7 @@ var app = angular.module('e-Commer', [
   'e-Commer.signin',
   'e-Commer.search',
   'e-Commer.services',
+  // 'e-Commer.checkOut',
   'ngRoute'
 ]);
 
@@ -22,6 +23,11 @@ app.config(function ($routeProvider,$httpProvider) {
     .when('/homepage', {
       templateUrl: 'app/homepage/homepage.html',
       controller: 'SearchController'
+      // authenticate: true
+    })
+    .when('/homepage/cart', {
+      templateUrl: 'app/checkout/checkOut.html',
+      controller: 'subController'
       // authenticate: true
     })
     .otherwise({

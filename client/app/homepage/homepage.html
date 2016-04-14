@@ -1,13 +1,13 @@
 <!-- Sylvia -->
 
-<div id = "homepage"> 
+<div id = "homepage" ng-controller='SearchController'> 
  <!-- the intent here is to trigger a search function on submit
  this will be the getAll function defined in the search library -->
  
   <!-- inputs are location, items, dates
     defined models for location, items, dates -->
   <div ng-controller='subController'>
-    <div class="before" ng-show='showBorA'>
+    <div class="before" ng-hide='formRender()'>
       <nav class="navigation">
         <ul>
           <li>
@@ -20,11 +20,16 @@
       </nav>
     </div>
 
-    <div class="after" ng-hide='showBorA'>
+    <div class="after" ng-show='formRender()'>
       <nav class="navigation">
         <ul>
           <li>
-            <a class="selected" href="#/cart">Cart</a>
+            <!-- <a href="#/homepage/cart" > -->
+              <span>
+               <!-- {{itemCount}}  -->
+                <a href="/homepage/cart" ng-click='processCheckOut()'>Cart | {{checkOutCounter}}</a>
+              </span>
+            <!-- </a> -->
           </li>
           <li>
             <a href="#/logOut">Log Out</a>
@@ -39,8 +44,8 @@
   <!-- Change this so that toggles show/hide  -->
   <div class="form" ng-show='formRender()'>
     <form name = "searchForm" ng-submit = 'getFormValue()'>
-      <input type = "text" ng-model = 'location'>
-      <input type = "text" ng-model = 'item'>
+      Location: <input type = "text" ng-model = 'location'>
+      Item name: <input type = "text" ng-model = 'item'>
 <!--       <input type = "text" ng-model = 'dates'> -->
       <button> Search </button>
     </form>
@@ -49,13 +54,11 @@
   <!-- Image render -->
   <div class="itemList">
     <ul>
-      <li ng-repeat='item in s'>
+      <li ng-repeat='item in randItemsData'>
       <!-- change it to <a> tag if there is route item.id -->
       <!-- <div ng-repeat='item in itemObj'> -->
-        <span>{{item.name}}</span>
-        <span>{{item.description}}</span>
-        <!-- <span>{{item.price}}</span> -->
-        <!-- </div> -->
+        <span>{{item.name}}  {{item.description}}</span>
+        <button ng-click='addToCheckOut(item)'> Add to Cart</button>
       </li>
     </ul>
   </div>

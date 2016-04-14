@@ -19,4 +19,3 @@ $scope.checkout = {};
 
 
 });
-
