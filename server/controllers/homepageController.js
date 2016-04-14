@@ -8,7 +8,6 @@ module.exports = {
       // see how these are defined on the client side
       console.log(req.body);
       if (req.body.default) {
-        console.log('Inside Random');
       	Search.search.getAllRandom(function(err, results) {
       		if (!err) {
       			res.json(results);
