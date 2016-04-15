@@ -1,11 +1,11 @@
 // Sylvia
-var Item = require('./itemModel.js');
+var Items = require('./itemModel.js');
 
-// sync with methods from itemModel
+// choose function below
 module.exports = {
 
   get: function (req, res, next) {
-    Item.get(function(err, results) {
+    Items.items(function(err, results) {
       if (!err) { 
         res.json(201);
       } else {
@@ -15,7 +15,7 @@ module.exports = {
   },
   
   post: function (req, res, next) {
-    Item.post(function(err, results) {
+    Items.items(function(err, results) {
       if (!err) { 
         res.json(201);
       } else {

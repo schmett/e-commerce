@@ -1,12 +1,11 @@
 // Sylvia
+var Checkout = require('./checkoutModel.js');
 
-var Cart = require('./cartModel.js');
-
-// sync methods with cartModel
+// choose function below
 module.exports = {
 
   get: function (req, res, next) {
-    Cart.get(function(err, results) {
+    Checkout.checkout(function(err, results) {
       if (!err) {
         res.json(results);
       } else {
@@ -16,7 +15,7 @@ module.exports = {
   }, 
 
   post: function (req, res, next) {
-    Cart.post(function (err, results) {
+    Checkout.checkout(function (err, results) {
       if (!err) {
         res.json(results);
       } else {

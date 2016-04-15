@@ -1,4 +1,3 @@
-// this needs to change according to the homepageModel
 var Search = require('../models/searchModel.js');
 
 module.exports = {
