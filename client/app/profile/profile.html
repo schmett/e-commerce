@@ -1,13 +1,26 @@
 
-<div ng-controller='profileCtrl'>
+
  <!-- /*
    THings this page needs:
    1. user info: id, and name
    2. Items: their items for rent and items the user is current renting
    assuming that everything is on $scope.info
   */ -->
- <div class="name"> {{info.name}}</div>
- <div class="memberSince">{{info.createdAt - new Date()}}</div>
- <div class="items4rent">{{<!--info.items4rent and ng-repeat-->}}</div>
- <div class="itemsRenting">{{<!--info.itemsRenting and ng-repeat-->}}</div>
+ <div class="name"> {{info.items4rent.user}}</div>
+ <!-- <div class="memberSince">{{info.createdAt - new Date()}}</div> -->
+<div>
+ <h1>User Items</h1>
+  <div class="items4rent" ng-repeat="item in info.items4rent">
+    <span>{{item.name}}</span>
+    <span>{{item.description}}</span>
+    <span>{{item.price}}</span>
+  </div>
+</div>
+<div>
+  <h1>User Renting Items</h1>
+  <div class="itemsRenting" ng-repeat="item in info.itemsRenting">
+    <span>{{item.name}}</span>
+    <span>{{item.description}}</span>
+    <span>{{item.price}}</span>
+  </div>
 </div>

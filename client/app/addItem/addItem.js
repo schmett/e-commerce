@@ -9,8 +9,6 @@ $scope.user = Auth.user;
 
   $scope.addItem = function () {
     var info = {id:$scope.user.id, item:$scope.itemForm};
-    console.log('Info info ',$scope.user);
-    console.log(info);
     Item.addOne(info)
       .then(function () {
         $location.path('/items');

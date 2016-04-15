@@ -1,14 +1,19 @@
 var app = angular.module('e-Commer.search', []);
 
-app.controller('SearchController', function ($scope,$location, $window, searchFactory) {
+app.controller('SearchController', function ($scope,$location, $window, searchFactory, Auth) {
   // this is for SEARCH FORM after LOGIN
   $scope.allItems = {};
   $scope.checkOutItems = searchFactory.checkOutItems;
   $scope.checkOutCounter = 0;
+  $scope.user = Auth.user;
 
   searchFactory.getSearchItems({default:'default'}).then(function(items){
     $scope.randItemsData = items;
   });
+
+  $scope.logout = function (){
+    Auth.signout();
+  }
  
   $scope.addToCheckOut = function(item) {
     $scope.checkOutItems.push(item);
@@ -16,10 +21,9 @@ app.controller('SearchController', function ($scope,$location, $window, searchFa
   }
 
   $scope.processCheckOut = function() {
-    console.log('process hceck out', $scope.checkOutItems);
     //Send the Cart to the server
-    searchFactory.sendToSubCtrl($scope.checkOutItems).then(function(response){
-      console.log(response);
+    var checkoutData = {id:$scope.user.id, items:$scope.checkOutItems};
+    searchFactory.sendToSubCtrl(checkoutData).then(function(response){
     });
     $location.path('/homepage');
   }
@@ -52,7 +56,6 @@ app.controller('SearchController', function ($scope,$location, $window, searchFa
     /*
     Now just checking for the token from localStorage. Must be compared with db token for security issues
      */
-    console.log(a);
     return a ? true : false;
   }
 
@@ -69,7 +72,6 @@ app.factory('searchFactory', function($http) {
         url: '/api/getSearchItems',
         data: inputValue
       }).then(function(res) {
-        console.log(res.data);
         return res.data;
       });
     }
@@ -81,7 +83,6 @@ app.factory('searchFactory', function($http) {
         data: checkoutData
       })
       .then(function(res) {
-        console.log(res.data);
         return res.data;
       });
     }
