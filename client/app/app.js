@@ -27,7 +27,7 @@ app.config(function ($routeProvider,$httpProvider) {
     })
     .when('/homepage/cart', {
       templateUrl: 'app/checkout/checkOut.html',
-      controller: 'subController'
+      controller: 'SearchController'
       // authenticate: true
     })
     .otherwise({

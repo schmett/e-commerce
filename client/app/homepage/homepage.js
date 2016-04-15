@@ -1,47 +1,46 @@
 var app = angular.module('e-Commer.search', []);
 
-app.controller('SearchController', function ($scope, $window, searchFactory) {
+app.controller('SearchController', function ($scope,$location, $window, searchFactory) {
   // this is for SEARCH FORM after LOGIN
   $scope.allItems = {};
-  $scope.checkOutItems = [];
+  $scope.checkOutItems = searchFactory.checkOutItems;
   $scope.checkOutCounter = 0;
 
-  // $scope.randItemsData = searchFactory.getSearchItems({default:'default'});
-  // console.log('Data ',$scope.randItemsData);
   searchFactory.getSearchItems({default:'default'}).then(function(items){
     $scope.randItemsData = items;
   });
  
   $scope.addToCheckOut = function(item) {
-    // console.log(item);
     $scope.checkOutItems.push(item);
     $scope.checkOutCounter++;
-    // sendToSubCtrl()
-    // checkOutService.sendToSubCtrl($scope.checkOutItems);
-    // console.log('addToCheckOut items', $scope.checkOutItems);
-    return item;
   }
 
   $scope.processCheckOut = function() {
     console.log('process hceck out', $scope.checkOutItems);
-
-    return searchFactory.sendToSubCtrl($scope.checkOutItems);
+    //Send the Cart to the server
+    // searchFactory.sendToSubCtrl($scope.checkOutItems);
+    $location.path('/homepage');
   }
 
-  // $scope.processCheckOut = function() {
-  //   console.log('process hceck out', 
-  //     $scope.checkOutItems);
-  //   return searchFactory.sendToSubCtrl($scope.checkOutItems);
-  // }
+  $scope.getSum = function() {
+    var i = 0,
+      sum = 0;
+    for(; i < $scope.checkOutItems.length; i++) {
+      sum += parseInt($scope.checkOutItems[i].price, 10);
+    }
+    return sum;
+  };
+
+  $scope.deleteItem = function(index) {
+    $scope.checkOutItems.splice(index,1);
+  };
 
   $scope.getFormValue = function() {
     $scope.randItemsData = {};
     $scope.allItems.location = $scope.location;
     $scope.allItems.item = $scope.item;
-    // $scope.allItems.dates = $scope.dates;
-    console.log($scope.allItems);
     searchFactory.getSearchItems($scope.allItems).then(function(items){
-    $scope.randItemsData = items;
+      $scope.randItemsData = items;
     });
   }
 
@@ -55,43 +54,19 @@ app.controller('SearchController', function ($scope, $window, searchFactory) {
     return a ? true : false;
   }
 
-  // $scope.processCheckOut = function() {
-  //   console.log('process hceck out', $scope.checkOutItems);
-
-  //   return searchFactory.sendToSubCtrl($scope.checkOutItems);
-  // }
-
 }).controller('subController', function($scope) {
-
-  // * Problem: show or hide form based on what? token or ?
-  // * solution 1: save token to db
-  
-   
-  // var a = $window.localStorage.getItem('com.e-Commer');
   $scope.showBorA = true;
-
-  // $scope.processCheckOut = function() {
-  //   console.log('clicked from subCtrl');
-
-  //   // return searchFactory.sendToSubCtrl($scope.checkOutItems);
-  // }
-  // console.log($scope.checkOutItems, 'subctrl');
 });
-
-// app.controller('checkOut', function($scope) {
-//   // $scope.checkOutItems = searchFactory.getCheckOutItems();
-//   console.log($scope.checkOutItems);
-// })
 
 app.factory('searchFactory', function($http) {
   // var checkoutArr;
+    var checkOutItems = [];
     var getSearchItems = function(inputValue) {
       return $http({
         method: 'POST',
         url: '/api/getSearchItems',
         data: inputValue
       }).then(function(res) {
-        // match res.data with server side
         console.log(res.data);
         return res.data;
       });
@@ -109,23 +84,9 @@ app.factory('searchFactory', function($http) {
       });
     }
   return {
+      checkOutItems : checkOutItems,
       getSearchItems: getSearchItems,
       sendToSubCtrl: sendToSubCtrl
     }
-    // getCheckOutItems: function() {
-    //   console.log(checkoutArr, 'from fact');
-    //   return checkoutArr;
-    // }
-    // 
-    // 
-    // 
-    // getRandItems: function() {
-    //   return $http({
-    //     method: 'GET',
-    //     url: '/api/getRandItems'
-    //   }).then(function(res) {
-    //     return res.data;
-    //   })
-    // }
   })
 
