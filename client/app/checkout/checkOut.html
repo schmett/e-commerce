@@ -1,21 +1,13 @@
 
-<div ng-controller='SearchController'>
-  <table>
-    <caption>Check Out Page</caption>
-<!--     <thead>
-      <tr>
-        <th>Item ID</th>
-        <th>Item Name</th>
-        <th>Item Description</th>
-        <th></th>
-      </tr>
-    </thead> -->
-    <tbody>
-    <!-- items live in homepage ctrl!!!!! -->
-      <tr ng-repeat='item in checkOutItems'>
-        <td>{{item}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<div class="itemList">
+  <caption>Check Out Page</caption>
+    <li ng-repeat='item in checkOutItems track by $index'>
+      <span>{{item.name}}  {{item.description}}</span>
+      <button ng-click='deleteItem(item)'> Delete Item</button>
+    </li>
 
+    <div>
+      <div>Total {{getSum() || currency}}</div>
+      <button ng-click='processCheckOut()'>Checkout</button>
+    </div>
+</div>

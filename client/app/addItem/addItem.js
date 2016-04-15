@@ -2,13 +2,16 @@
 // Controller for adding items
 
 angular.module('e-Commer.addItem', [])
-.controller('addItemController', function ($scope, $window, $location, Item) {
+.controller('addItemController', function ($scope, $window, $location, Item, Auth) {
 
 $scope.itemForm = {};
+$scope.user = Auth.user;
 
   $scope.addItem = function () {
-    
-    Item.addOne($scope.itemForm)
+    var info = {id:$scope.user.id, item:$scope.itemForm};
+    console.log('Info info ',$scope.user);
+    console.log(info);
+    Item.addOne(info)
       .then(function () {
         $location.path('/items');
       })

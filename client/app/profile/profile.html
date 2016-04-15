@@ -1,0 +1,13 @@
+
+<div ng-controller='profileCtrl'>
+ <!-- /*
+   THings this page needs:
+   1. user info: id, and name
+   2. Items: their items for rent and items the user is current renting
+   assuming that everything is on $scope.info
+  */ -->
+ <div class="name"> {{info.name}}</div>
+ <div class="memberSince">{{info.createdAt - new Date()}}</div>
+ <div class="items4rent">{{<!--info.items4rent and ng-repeat-->}}</div>
+ <div class="itemsRenting">{{<!--info.itemsRenting and ng-repeat-->}}</div>
+</div>
