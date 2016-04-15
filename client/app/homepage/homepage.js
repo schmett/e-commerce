@@ -18,7 +18,9 @@ app.controller('SearchController', function ($scope,$location, $window, searchFa
   $scope.processCheckOut = function() {
     console.log('process hceck out', $scope.checkOutItems);
     //Send the Cart to the server
-    // searchFactory.sendToSubCtrl($scope.checkOutItems);
+    searchFactory.sendToSubCtrl($scope.checkOutItems).then(function(response){
+      console.log(response);
+    });
     $location.path('/homepage');
   }
 

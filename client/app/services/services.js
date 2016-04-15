@@ -45,7 +45,12 @@ angular.module('e-Commer.services', [])
   })
 
   .factory('User', function ($http) {
+    // var user = {};
     return {
+      user: user,
+      getUser: function(){
+        return this.user;
+      },
       // adds a user to the database
       addOne: function(user) {
         return $http({
@@ -55,6 +60,7 @@ angular.module('e-Commer.services', [])
         })
         .then(function (resp) {
           console.log(resp);
+          // this.user = resp.data;
           return resp;
         })
       },
@@ -86,7 +92,15 @@ angular.module('e-Commer.services', [])
 //@Author: Jovani
 //factory for Authentication, signup and signin methods
   .factory('Auth', function ($http, $location, $window) {
+    var user;
     return {
+      user:user,
+      getProperty: function () {
+          return user;
+      },
+      setProperty: function(value) {
+          user = value;
+      },
       //signup method for make a request and send the user info to the server
       signup : function(user) {
         return $http({
@@ -104,8 +118,9 @@ angular.module('e-Commer.services', [])
           data: user
         })
         .then(function (resp) {
-          console.log(resp);
-          return resp.data.token;
+          // resp.data.user[0]
+          console.log('User info',resp.data);
+          return resp.data;
         })
         .catch(function(err){
           console.log(err);
