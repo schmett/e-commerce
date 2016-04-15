@@ -6,6 +6,7 @@ var app = angular.module('e-Commer', [
   'e-Commer.search',
   'e-Commer.services',
   'e-Commer.addItem',
+  'e-Commer.profile',
   // 'e-Commer.checkOut',
   'ngMaterial',
   'ngRoute'
@@ -35,6 +36,11 @@ app.config(function ($routeProvider,$httpProvider) {
     .when('/addItem', {
       templateUrl: 'app/addItem/addItem.html',
       controller: 'addItemController'
+      // authenticate: true
+    })
+    .when('/profile', {
+      templateUrl: 'app/profile/profile.html',
+      controller: 'profileCtrl'
       // authenticate: true
     })
     .otherwise({

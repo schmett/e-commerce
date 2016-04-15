@@ -1,6 +1,6 @@
 <!-- Sylvia -->
 
-<div id = "homepage" ng-controller='SearchController'> 
+<div id = "homepage"> 
  <!-- the intent here is to trigger a search function on submit
  this will be the getAll function defined in the search library -->
  
@@ -32,10 +32,13 @@
             <!-- </a> -->
           </li>
           <li>
-            <a href="#/logOut">Log Out</a>
+            <a href="#/addItem">Add Item</a>
           </li>
            <li>
-            <a href="#/addItem">Add Item</a>
+            <a href="#/profile">Profile</a>
+          </li>
+          <li>
+            <a href="" ng-click="logout()">Log Out</a>
           </li>
         </ul>
       </nav>

@@ -132,7 +132,7 @@ angular.module('e-Commer.services', [])
       },
       signout: function () {
         $window.localStorage.removeItem('com.e-Commer');
-        $location.path('/signin');
+        $location.path('/homepage');
       }
     }
   });
