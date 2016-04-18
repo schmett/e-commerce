@@ -39,13 +39,17 @@
 
 
           <li>
-            <a href="" ng-click="open()">Log Out</a>
+            <a href="" ng-click="open()">Test</a>
           </li>
 
 
           <li>
             <a href="" ng-click="logout()">Log Out</a>
           </li>
+
+          <li style="float: right;">
+            <a href="#/profile">{{user.name | uppercase}}</a>
+          </li>          
         </ul>
       </nav>
     </div>
@@ -53,26 +57,27 @@
 
   <!-- wrap this into another div so that we an toggle or hide -->
   <!-- Change this so that toggles show/hide  -->
-  <div class="form" ng-show='formRender()'>
-    <form name = "searchForm" ng-submit = 'getFormValue()'>
+  <div class="form" ng-show='formRender()' style="display: inline-block; " class="col-xs-8">
+    <form name = "searchForm" ng-submit = 'getFormValue()' >
       <!-- Location: <input type = "text" ng-model = 'location'> -->
-        <md-input-container flex>
+        <md-input-container flex layout-align="end center">
           <label>Location</label>
           <input type="text" ng-model = 'location' required/>
         </md-input-container>
-        <md-input-container flex>
+        <md-input-container flex layout-align="end center">
           <label>Item name</label>
           <input type="text" ng-model = 'item' required/>
         </md-input-container>
-      <button> Search </button>
+      <!-- <button> Search </button> -->
+      <md-button type='submit' class="md-primary md-raised" layout-align="end center">Search</md-button>
     </form>
   </div>
   <!-- Image render -->
 
-<div ng-cloak >
-  <md-content class="md-padding" layout-xs="column" layout="row" ng-repeat='item in randItemsData'>
-    <div flex-xs flex-gt-xs="50" layout="column"  >
-      <md-card md-theme="{{'dark-light-green'}}" md-theme-watch flex="30">
+<div ng-cloak>
+  <md-content class="md-padding" layout-xs="column" layout="row" ng-repeat='item in randItemsData' layout-align="center">
+    <div flex-xs flex-gt-xs="40" layout="column"  >
+      <md-card md-theme="{{'dark-light-green'}}" md-theme-watch flex="20">
         <md-card-title>
           <md-card-title-text>
             <span class="md-display-1">{{item.name}}</span>
@@ -80,11 +85,12 @@
             <span class="md-subhead">{{item.description}}</span>
           </md-card-title-text>
           <md-card-title-media>
+
             <div class="md-media-md card-media" layout-align="end center">{{item.price | currency}}</div>
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-click='addToCheckOut(item)' class="md-primary md-raised">Add card</md-button>
+          <md-button ng-click='addToCheckOut(item)' class="md-primary md-raised">Add cart</md-button>
         </md-card-actions>
       </md-card>
     </div>

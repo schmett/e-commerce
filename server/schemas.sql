@@ -26,7 +26,7 @@ CREATE TABLE users (
   name  varchar(50)   NOT NULL,
   email  varchar(50)   NOT NULL,
   address_id  int   NOT NULL,
-  phoneNumber  varchar(20)   NOT NULL,
+  phoneNumber  varchar(25)   NOT NULL,
   birthday  date   NOT NULL,
   type  varchar(30) DEFAULT 'customer',
   password  varchar(30)   NOT NULL,
