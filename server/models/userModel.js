@@ -14,7 +14,7 @@ module.exports = {
 //SHA1('12345')
       var queryAddress = 'insert into address (street, number, city, postalcode) SELECT * FROM (select "'+ user.address.street +'",'+user.address.number+',"'+user.address.city+'",'+user.address.postalcode+') AS temp WHERE NOT EXISTS (SELECT id FROM address WHERE postalcode= '+ user.address.postalcode+' and number = '+user.address.number+')LIMIT 1';
       db.query(queryAddress, function(err, results) {
-        var queryUser = 'insert into users (name,email,address_id,phoneNumber,birthday,password) values ("'+ user.name +'","'+user.email+'", (SELECT id FROM address WHERE postalcode= '+ user.address.postalcode+' and number = '+user.address.number+'),'+user.phoneNumber+',"'+user.birthday+'" ,"'+user.password+'")';
+        var queryUser = 'insert into users (name,email,address_id,phoneNumber,birthday,password) values ("'+ user.name +'","'+user.email+'", (SELECT id FROM address WHERE postalcode= '+ user.address.postalcode+' and number = '+user.address.number+'),"'+user.phoneNumber+'","'+user.birthday+'" ,"'+user.password+'")';
         db.query(queryUser, function(err, results) {
           console.log('Error signup',err);
           console.log('results signup',results);
