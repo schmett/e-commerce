@@ -12,14 +12,22 @@
       <button ng-click='deleteItem(item)'> Delete Item</button>
     </li> -->
 
+  <div class="checkOutFinal">
+    <h1>Hello {{checkOutItems.id}}</h1>
+    <h2 id="currency-default">Total: {{getSum() | currency}}</h2><br>
+    <md-button class="btn waves-effect md-primary" ng-click='processCheckOut()'>CheckOut
+    </md-button>
+  </div>
 
-  <div ng-cloak >
+  <div ng-cloak class='center'>
     <md-content class="md-padding" layout-xs="column" layout="row" ng-repeat='item in checkOutItems track by $index'>
       <div flex-xs flex-gt-xs="50" layout="column"  >
         <md-card md-theme="{{'dark-light-green'}}" md-theme-watch flex="30">
           <md-card-title>
             <md-card-title-text>
+
               <span class="md-display-1">{{item.name}}</span>
+              <span class="md-subhead">{{item.price | currency}}</span>
               <span class="md-title">description</span>
               <span class="md-subhead">{{item.description}}</span>
             </md-card-title-text>
@@ -38,10 +46,7 @@
     </md-content>
   </div>
 
-  <div>
-    <div>Total {{getSum() || currency}}</div>
-    <button ng-click='processCheckOut()'>Checkout</button>
-  </div>
+
 
    <md-button class="md-primary md-fab md-fab-bottom-right" style='position: fixed;'>
       <a href="#/homepage">Home</a>
