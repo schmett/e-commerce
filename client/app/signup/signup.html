@@ -1,121 +1,56 @@
-<!-- This is a view that will contain the signup view -->
-<!-- <div id = "sign"> 
- -->  
-  <!-- <form name = "signupForm" ng-submit = 'signup()'>
-  	<!-- user.username and user.password to be defined -->
-   <!--  <input type = "text" ng-model = 'userform.username'>
-    <input type = "text" ng-model = 'userform.email'>
-    <input type = "text" ng-model = 'userform.password'>
-    <button> Sign-up </button> -->
-  <!-- </form> -->
-  <!-- redirect to sign in once signed up -->
-  <!-- change the path directly -->
-  <!-- <a href = "#/signin"> Sign-in </a> --> 
-<!-- </div> -->
 
-<h2>Signup</h2>
 <div id = "signup" layout="column" ng-cloak class="md-inline-form" style='padding: 40px;'> 
-<h3>User Information</h3>
-<md-content layout-gt-sm="row" layout-padding>
- <form class = "form-register" name = "signupForm" ng-submit = 'signup()'>
+<h3>Please sign up here...</h3>
 
-   <!-- <div class = "input-field col s6">
-     <label>Username</label>
-     <input type = "text" ng-model = 'userform.name' class = "validate" required>
-   </div>
- -->
+<md-content layout-gt-sm="row" layout-padding>
+  <form class = "form-register" name = "signupForm" ng-submit = 'signup()'>
     <md-input-container flex>
       <label>Username</label>
       <input type="text" ng-model = 'userform.name' required/>
     </md-input-container>
-
-<!--    <div class = "input-field col s6">
-     <label>Email</label> 
-     <input type = "email" ng-model = 'userform.email' class = "validate" required>
-   </div> -->
 
     <md-input-container flex>
       <label>Email</label>
       <input type="text" ng-model = 'userform.email' required/>
     </md-input-container>
 
-<!--    <div>
-     <label>Password</label>
-     <input type = "password" ng-model = 'userform.password' class = "validate" required>
-   </div> -->
-
     <md-input-container flex>
       <label>Password</label>
-      <input type="text" ng-model = 'userform.password' required/>
+      <input type="password" ng-model = 'userform.password' required/>
     </md-input-container>
 
-  <!--  <div class = "input-field col s6">
-     <label>Birthday</label>
-     <input type="date"  ng-model="date"></input>
-   </div> -->
-
-    <!-- <md-input-container flex>
-      <label>Birthday</label>
-      <input type="date" ng-model = 'date' required/>
-    </md-input-container> -->
-    <!-- <h4>Standard date-picker</h4> -->
     <md-datepicker ng-model="date" md-placeholder="Birthday"></md-datepicker>
-
-
-  <!--  <div class = "input-field col s6">
-     <label>Phone Number</label>
-     <input type = "number" ng-model = 'userform.phoneNumber'>
-   </div> -->
 
     <md-input-container flex>
       <label>Phone Number</label>
       <input type="text" ng-model = 'userform.phoneNumber' required/>
     </md-input-container>
-    </md-content>
-
-  <!--  <div class = "input-field col s6">
-     <label>Street number</label>
-     <input type = "number" ng-model = 'userform.address.number'>
-   </div> -->
-
-
+    
+  </md-content>
 
   <md-content layout-gt-sm="row" layout-padding>
-  <div><h3>Address</h3></div>
+    <h3>Address:</h3>
+
     <md-input-container flex-gt-sm>
       <label>Street number</label>
       <input type="text" ng-model = 'userform.address.number' required/>
     </md-input-container>
-
-   <!-- <div class = "input-field col s6">
-     <label>Street</label>
-     <input type = "text" ng-model = 'userform.address.street'>
-   </div> -->
 
     <md-input-container flex-gt-sm>
       <label>Street</label>
       <input type="text" ng-model = 'userform.address.street' required/>
     </md-input-container>
 
-   <!-- <div class = "input-field col s6">
-     <label>City</label>
-     <input type = "text" ng-model = 'userform.address.city'>
-   </div> -->
-
     <md-input-container flex-gt-sm>
       <label>City</label>
       <input type="text" ng-model = 'userform.address.city' required/>
     </md-input-container>
    
-  <!--  <div class = "input-field col s6">
-     <label>Postal code</label>
-     <input type = "number" ng-model = 'userform.address.postalcode'>
-   </div> -->
    <md-input-container class="md-block" flex>
       <label>State</label>
       <md-select ng-model="userform.address.state">
-        <md-option ng-repeat="state in states" value="{{state.abbrev}}" flex="50">
-          {{state.abbrev}}
+        <md-option ng-repeat="state in states" value="{{state.abbrev}}" flex="25">
+          {{state.abbrev}}  
         </md-option>
       </md-select>
     </md-input-container>
@@ -124,23 +59,28 @@
       <label>Postal code</label>
       <input type="text" ng-model = 'userform.address.postalcode' required/>
     </md-input-container>
+
   </md-content>
-   <div class="space-top text-center">
-     <!-- <button ng-disabled="form-register.$invalid">
-     Sign up
-     </button> -->
 
-     <md-button ng-disabled="form-register.$invalid" class="md-accent md-raised md-hue-1"  ng-submit = 'signup()' ng-click="showSimpleToast()">Signup</md-button>
-
-     <md-button class="md-primary md-fab md-fab-bottom-right" style='position: fixed;'>
-        <a href="#/homepage">Home</a>
+  <div class="space-top text-center">
+    <md-button type='submit' ng-disabled="form-register.$invalid" class="md-raised md-primary btn done">
+      <i class="material-icons left"></i> Sign up
     </md-button>
+  </div>
 
-    <md-button class="md-fab md-fab-bottom-left md-hue-1" style='position: fixed;'>
-        <a href="#/signin">Signin</a>
-    </md-button>
-   </div>
- </form>
+  </div>
+  </form>
+
+  <md-button class="md-primary md-fab md-fab-top-right md-hue-2" style='margin-top: 50px;'>
+    <a href="#/homepage" style = style='font-size: 85%; color: white'>Home</a>
+  </md-button>
+
+  <md-button class="md-primary md-fab md-fab-top-right md-hue-1" style='margin-top: 50px; margin-right: 80px; float: left;'>
+    <a href="#/signin" style='font-size: 85%; color: white'>Signin</a>
+  </md-button>
 
 </div>
+
+
+
 
