@@ -1,13 +1,50 @@
 
-<div class="itemList">
-  <caption>Check Out Page</caption>
-    <li ng-repeat='item in checkOutItems track by $index'>
+
+<div id = "signup" style='padding: 40px;'> 
+  <h2>Cart</h2>
+  <md-content>
+  <h3>Checkout</h3>
+
+<!-- <div class="itemList">
+  <caption>Check Out Page</caption> -->
+    <!-- <li ng-repeat='item in checkOutItems track by $index'>
       <span>{{item.name}}  {{item.description}}</span>
       <button ng-click='deleteItem(item)'> Delete Item</button>
-    </li>
+    </li> -->
 
-    <div>
-      <div>Total {{getSum() || currency}}</div>
-      <button ng-click='processCheckOut()'>Checkout</button>
-    </div>
+
+  <div ng-cloak >
+    <md-content class="md-padding" layout-xs="column" layout="row" ng-repeat='item in checkOutItems track by $index'>
+      <div flex-xs flex-gt-xs="50" layout="column"  >
+        <md-card md-theme="{{'dark-light-green'}}" md-theme-watch flex="30">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-display-1">{{item.name}}</span>
+              <span class="md-title">description</span>
+              <span class="md-subhead">{{item.description}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-md card-media"></div>
+            </md-card-title-media>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <!-- <md-button ng-click='deleteItem(item)'>Delete Item</md-button> -->
+            <md-button class="md-primary md-raised" ng-click="showConfirm($event,item)" >
+              Delete Item
+            </md-button>
+          </md-card-actions>
+       </md-card>
+      </div>
+    </md-content>
+  </div>
+
+  <div>
+    <div>Total {{getSum() || currency}}</div>
+    <button ng-click='processCheckOut()'>Checkout</button>
+  </div>
+
+   <md-button class="md-primary md-fab md-fab-bottom-right" style='position: fixed;'>
+      <a href="#/homepage">Home</a>
+  </md-button>
+</md-content>
 </div>

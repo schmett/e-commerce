@@ -12,11 +12,17 @@ $scope.user = Auth.user;
     //call the signin factory method and pass the user form
     Auth.signin($scope.userLogin)
       .then(function (data) {
-        $window.localStorage.setItem('com.e-Commer', data.token);
-        console.log('User login', data.user);
-        $scope.user = data.user[0];
-        Auth.user = $scope.user;
-        $location.path('/homepage');
+        console.log("data signin res ",data)
+        if(data === 404){
+          $location.path('/signin');
+          $scope.userLogin = {};
+        } else {
+          $window.localStorage.setItem('com.e-Commer', data.token);
+          console.log('User login', data.user);
+          $scope.user = data.user[0];
+          Auth.user = $scope.user;
+          $location.path('/homepage');
+        }
       })
       .catch(function (error) {
         console.error(error);

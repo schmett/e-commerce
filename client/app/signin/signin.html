@@ -1,9 +1,59 @@
-<div id='signin'>
-  <h1>Signin</h1>
+<!-- <div id='signin'>
   <form name="signinForm" ng-submit='signin()'>
     <input type='text'ng-model='userLogin.username'>
     <input type="password" ng-model='userLogin.password'>
     <button>signin</button>
   </form>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
+</div> -->
+<div id = "signin" style='padding: 40px;'> 
+<h2>Signin</h2>
+<md-content>
+<h3>User Information</h3>
+ <form name = "signinForm" ng-submit = 'signin()'>
+
+  <!--  <div class = "input-field col s6">
+     <label>Username</label>
+     <input type = "text" ng-model = 'userLogin.username' class = "validate" required>
+   </div>
+
+   <div>
+     <label>Password</label>
+     <input type = "password" ng-model = 'userLogin.password' class = "validate" required>
+   </div> -->
+
+   <md-input-container flex>
+      <label>Username</label>
+      <input type="text" ng-model = 'userLogin.username' required/>
+    </md-input-container>
+    <md-input-container flex>
+      <label>Password</label>
+      <input type="text" ng-model = 'userLogin.password' required/>
+    </md-input-container>
+
+      <div class="space-top text-center">
+          <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
+            <i class="material-icons left"></i> Sign in
+          </button>
+        </div>
+      
+    </form>
+
+<md-content>
+<!-- <div>
+  <span></span>>
+</div> -->
+
+<div class="space-top text-center">
+ <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a> 
 </div>
+</div>
+
+
+<md-button class="md-primary md-fab md-fab-bottom-right" style='position: fixed'>
+    <a href="#/homepage">Home</a>
+  </md-button>
+
+  <md-button class="md-primary md-fab md-fab-bottom-left md-hue-1" style='position: fixed;'>
+        <a href="#/signup">Signup</a>
+    </md-button>

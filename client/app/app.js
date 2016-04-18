@@ -9,6 +9,7 @@ var app = angular.module('e-Commer', [
   'e-Commer.profile',
   // 'e-Commer.checkOut',
   'ngMaterial',
+  'ngMdIcons',
   'ngRoute'
 ]);
 
