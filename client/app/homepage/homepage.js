@@ -1,19 +1,6 @@
 var app = angular.module('e-Commer.search', ['ngMaterial'])
 .config(function($mdThemingProvider) {
   
-   // .primaryPalette('blue').accentPalette('pink');
-  // $mdThemingProvider.theme('default')
-  // .primaryPalette('pink', {
-  //     'default': '400', // by default use shade 400 from the pink palette for primary intentions
-  //     'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
-  //     'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
-  //     'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
-  //   })
-  //   // If you specify less than all of the keys, it will inherit from the
-  //   // default shades
-  //   .accentPalette('purple', {
-  //     'default': '200' // use shade 200 for default, and keep all other shades the same
-  //   });
 
   var neonRedMap = $mdThemingProvider.extendPalette('red', {
     '500': '#10aeb2',
@@ -52,6 +39,7 @@ app.controller('SearchController', function ($scope,$location, $window, searchFa
 
   $scope.processCheckOut = function() {
     //Send the Cart to the server
+    console.log('transfering you to paypal server..');
     var checkoutData = {id:$scope.user.id, items:$scope.checkOutItems};
     searchFactory.sendToSubCtrl(checkoutData).then(function(response){
     });

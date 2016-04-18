@@ -266,3 +266,17 @@ md-datepicker {
   height: 6.6rem;
   border-radius: 90%;
 }
+
+
+/* 
+  Check Out
+*/
+.center {
+    margin: auto;
+    padding: 5%;
+}
+
+.checkOutFinal {
+  /*something goes here*/
+  text-align: right;
+}

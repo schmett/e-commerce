@@ -36,6 +36,7 @@ var last = {
   }
 
  $scope.showSimpleToast = function() {
+  console.log('here I am');
     var pinTo = $scope.getToastPosition();
     $mdToast.show(
       $mdToast.simple()
