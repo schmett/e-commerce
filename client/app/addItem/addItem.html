@@ -1,11 +1,39 @@
 <!-- David --> 
-<div id="addItem">
-  <h1>Add an Item for Rent</h1>
+<div id = "signup" style='padding: 40px;'> 
+  <h2>Add Item</h2>
+  <md-content>
+  <h3>Item for Rent</h3>
   <form name="addItemForm" ng-submit='addItem()'>
-    <input type="hidden" value='{{user.id}}'></input>
-    <input type='text'ng-model='itemForm.name'/>
-    <input type="text" ng-model='itemForm.description'/>
-    <input type="number" ng-model='itemForm.price'/>
+
+    <!-- <input type="hidden" value='{{user.id}}'></input>
+    <md-input-container flex>
+      <label>Phone Number</label>
+      <input type="text" ng-model = 'userform.phoneNumber' required/>
+    </md-input-container> -->
+
+    <!-- <input type='text'ng-model='itemForm.name'/> -->
+    <md-input-container flex>
+      <label>Name</label>
+      <input type="text" ng-model = 'itemForm.name' required/>
+    </md-input-container>
+
+    <!-- <input type="text" ng-model='itemForm.description'/> -->
+    <md-input-container flex>
+      <label>Description</label>
+      <input type="text" ng-model = 'itemForm.description' required/>
+    </md-input-container>
+    
+    <!-- <input type="number" ng-model='itemForm.price'/> -->
+    <md-input-container flex>
+      <label>Price</label>
+      <input type="number" ng-model = 'itemForm.price' required/>
+    </md-input-container>
+
     <button>Add Item</button>
   </form>
+</md-content>
+  <md-button class="md-primary md-fab md-fab-bottom-right" style='position: fixed;'>
+    <a href="#/homepage">Home</a>
+  </md-button>
+
 </div>

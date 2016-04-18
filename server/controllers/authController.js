@@ -6,8 +6,13 @@ module.exports = {
     var user = req.body;
     User.users.get(user, function(err, results){
       if (!err) {
-        var token = jwt.encode(user, 'secret');
-        res.json({token: token, user: results});
+        console.log('signin results ',results);
+        if(results.length === 0){
+          res.json(404);
+        } else {
+          var token = jwt.encode(user, 'secret');
+          res.json({token: token, user: results});
+        }
       }
       else {
         res.json(err);

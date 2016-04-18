@@ -6,21 +6,77 @@
    2. Items: their items for rent and items the user is current renting
    assuming that everything is on $scope.info
   */ -->
- <div class="name"> {{info.items4rent.user}}</div>
+<div id = "signup" style='padding: 40px;'> 
+  <h2>Profile</h2>
+  <!-- <h2>Hola {{user.name}}</h2> -->
+  <md-content>
+  <div class="name" style="float: right;"> Hola {{user.name}}</div>
  <!-- <div class="memberSince">{{info.createdAt - new Date()}}</div> -->
-<div>
- <h1>User Items</h1>
-  <div class="items4rent" ng-repeat="item in info.items4rent">
+ <h3>User Items</h3>
+  <!-- <div class="items4rent" ng-repeat="item in info.items4rent">
+    <span>{{item.name}}</span>
+    <span>{{item.description}}</span>
+    <span>{{item.price}}</span>
+  </div> -->
+
+  <div ng-cloak >
+    <md-content class="md-padding" layout-xs="column" layout="row" ng-repeat="item in info.items4rent">
+      <div flex-xs flex-gt-xs="50" layout="column"  >
+        <md-card md-theme="{{'dark-light-green'}}" md-theme-watch flex="30">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-display-1">{{item.name}}</span>
+              <span class="md-title">description</span>
+              <span class="md-subhead">{{item.description}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-md card-media" ayout-align="end center">{{item.price | currency}}</div>
+            </md-card-title-media>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click='deleteItem(item)'>Delete Item</md-button>
+          </md-card-actions>
+       </md-card>
+      </div>
+    </md-content>
+  </div>
+
+</md-content>
+<!-- </div> -->
+<md-content>
+  <h3>User Renting Items</h3>
+<!--   <div class="itemsRenting" ng-repeat="item in info.itemsRenting">
     <span>{{item.name}}</span>
     <span>{{item.description}}</span>
     <span>{{item.price}}</span>
   </div>
-</div>
-<div>
-  <h1>User Renting Items</h1>
-  <div class="itemsRenting" ng-repeat="item in info.itemsRenting">
-    <span>{{item.name}}</span>
-    <span>{{item.description}}</span>
-    <span>{{item.price}}</span>
+</div> -->
+  <div ng-cloak >
+    <md-content class="md-padding" layout-xs="column" layout="row" ng-repeat="item in info.itemsRenting">
+      <div flex-xs flex-gt-xs="50" layout="column"  >
+        <md-card md-theme="{{'dark-light-green'}}" md-theme-watch flex="30">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-display-1">{{item.name}}</span>
+              <span class="md-title">description</span>
+              <span class="md-subhead">{{item.description}}</span>
+              <!-- <span class="md-subhead">{{item.price}}</span> -->
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-md card-media"></div>
+            </md-card-title-media>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+          <span class="md-subhead">{{item.price | currency}}</span>
+            <!-- <md-button ng-click='deleteItem(item)'>Delete Item</md-button> -->
+          </md-card-actions>
+       </md-card>
+      </div>
+    </md-content>
   </div>
+  </md-content>
 </div>
+
+ <md-button class="md-primary md-fab md-fab-bottom-right" style='position: fixed;'>
+      <a href="#/homepage">Home</a>
+  </md-button>

@@ -7,19 +7,17 @@ module.exports = {
     get: function (user,callback) {
       var query = 'Select id,name,email,address_id,birthday from users where name = "'+ user.username +'" and password = "'+user.password+'"';
       db.query(query, function(err, results) {
-        console.log('sigini user ',results);
         callback(err, results);
       });
     },
     post: function (user, callback) {
-      var queryAddress = 'insert into address (street, number, city, postalcode) values ("'+ user.address.street +'",'+user.address.number+',"'+user.address.city+'",'+user.address.postalcode+')';
+//SHA1('12345')
+      var queryAddress = 'insert into address (street, number, city, postalcode) SELECT * FROM (select "'+ user.address.street +'",'+user.address.number+',"'+user.address.city+'",'+user.address.postalcode+') AS temp WHERE NOT EXISTS (SELECT id FROM address WHERE postalcode= '+ user.address.postalcode+' and number = '+user.address.number+')LIMIT 1';
       db.query(queryAddress, function(err, results) {
-        console.log('Model signup address err', err);
-        console.log('Model signup address results', results);
-        var queryUser = 'insert into users (name,email,address_id,phoneNumber,birthday,password) values ("'+ user.username +'","'+user.email+'", (SELECT id FROM address WHERE postalcode= '+ user.address.postalcode+' and number = '+user.address.number+'),'+username.phoneNumber+',"'+user.birthday+'" ,"'+user.password+'")';
+        var queryUser = 'insert into users (name,email,address_id,phoneNumber,birthday,password) values ("'+ user.name +'","'+user.email+'", (SELECT id FROM address WHERE postalcode= '+ user.address.postalcode+' and number = '+user.address.number+'),'+user.phoneNumber+',"'+user.birthday+'" ,"'+user.password+'")';
         db.query(queryUser, function(err, results) {
-          console.log('Model signup user err', err);
-          console.log('Model signup user results', results);
+          console.log('Error signup',err);
+          console.log('results signup',results);
           callback(err, results);
         });
       });
