@@ -28,15 +28,15 @@
     </md-input-container>
     <md-input-container flex>
       <label>Password</label>
-      <input type="text" ng-model = 'userLogin.password' required/>
+      <input type="password" ng-model = 'userLogin.password' required/>
     </md-input-container>
-
+    <md-input-container flex>
       <div class="space-top text-center">
-          <button ng-disabled="form-register.$invalid" class="waves-effect waves-light btn done">
+          <md-button type='submit' ng-disabled="form-register.$invalid" class="md-raised md-primary btn done">
             <i class="material-icons left"></i> Sign in
-          </button>
+          </md-button>
         </div>
-      
+    </md-input-container>  
     </form>
 
 <md-content>
@@ -44,16 +44,13 @@
   <span></span>>
 </div> -->
 
-<div class="space-top text-center">
- <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a> 
-</div>
 </div>
 
 
-<md-button class="md-primary md-fab md-fab-bottom-right" style='position: fixed'>
-    <a href="#/homepage">Home</a>
+<md-button class="md-primary md-fab md-fab-top-right md-hue-2" style='margin-top: 50px;'>
+    <a href="#/homepage" style='font-size: 85%; color: white'>Home</a>
   </md-button>
 
-  <md-button class="md-primary md-fab md-fab-bottom-left md-hue-1" style='position: fixed;'>
-        <a href="#/signup">Signup</a>
+  <md-button class="md-primary md-fab md-fab-top-right md-hue-1" style='margin-top: 50px; margin-right: 80px; float: left;'>
+        <a href="#/signup" style='font-size: 85%; color: white'>Signup</a>
     </md-button>
